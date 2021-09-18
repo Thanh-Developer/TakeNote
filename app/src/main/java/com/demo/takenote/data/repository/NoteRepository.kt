@@ -1,0 +1,16 @@
+package com.demo.takenote.data.repository
+
+import androidx.lifecycle.LiveData
+import com.demo.takenote.data.local.db.Note
+
+/**
+ *  Create by ThanhPQ
+ */
+interface NoteRepository {
+    fun getAllNotes(): LiveData<List<Note>>
+    suspend fun insertNote(note: Note)
+    suspend fun updateNote(note: Note)
+    suspend fun deleteNote(note: Note)
+    suspend fun deleteNoteById(id: Int)
+    suspend fun clearNote()
+}
