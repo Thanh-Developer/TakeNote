@@ -18,25 +18,20 @@ import org.koin.android.viewmodel.ext.android.viewModel
  *  Create by ThanhPQ
  */
 class HomeActivity : AppCompatActivity() {
-    companion object {
-        const val NOTE_DATA = "NOTE_DATA"
-    }
-
     private val viewModel: HomeViewModel by viewModel()
     private lateinit var binding: ActivityMainBinding
     private lateinit var homeAdapter: HomeAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
         initView()
-
-        observeNotes()
+        observeField()
     }
 
     private fun initView() {
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         homeAdapter = HomeAdapter {
             openActivity(AddNoteActivity::class.java) {
                 putParcelable(NOTE_DATA, it)
@@ -56,7 +51,7 @@ class HomeActivity : AppCompatActivity() {
         ItemTouchHelper(itemTouchHelperCallback()).attachToRecyclerView(binding.notesRV)
     }
 
-    private fun observeNotes() {
+    private fun observeField() {
         Coroutines.main {
             viewModel.getAllNotes().observe(this@HomeActivity, { listNote ->
                 if (listNote.isNullOrEmpty()) {
@@ -71,12 +66,16 @@ class HomeActivity : AppCompatActivity() {
 
     private fun itemTouchHelperCallback(): ItemTouchHelper.SimpleCallback {
         return object :
-            ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+            ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
             override fun onMove(
                 recyclerView: RecyclerView,
                 viewHolder: RecyclerView.ViewHolder,
                 target: RecyclerView.ViewHolder
             ): Boolean {
+                homeAdapter.onItemMove(
+                    viewHolder.adapterPosition,
+                    target.adapterPosition
+                )
                 return false
             }
 
@@ -89,5 +88,9 @@ class HomeActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    companion object {
+        const val NOTE_DATA = "NOTE_DATA"
     }
 }

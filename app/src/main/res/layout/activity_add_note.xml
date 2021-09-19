@@ -2,6 +2,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.demo.takenote.ui.addnote.AddNoteViewModel" />
+    </data>
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -9,7 +16,8 @@
 
         <include
             android:id="@+id/toolBar"
-            layout="@layout/view_toolbar" />
+            layout="@layout/view_toolbar"
+            app:viewModel="@{ viewModel }" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,10 +38,10 @@
                 android:hint="@string/edit_title"
                 android:inputType="textCapSentences|textMultiLine"
                 android:singleLine="false"
+                android:text="@={viewModel.title}"
                 android:textColor="@color/edt_gray"
                 android:textCursorDrawable="@drawable/cursor_black"
                 android:textSize="@dimen/_18sdp" />
-
 
             <EditText
                 android:id="@+id/edtDesc"
@@ -45,6 +53,7 @@
                 android:hint="@string/edit_desc"
                 android:inputType="textCapSentences|textMultiLine"
                 android:singleLine="false"
+                android:text="@={viewModel.des}"
                 android:textColor="@color/edt_gray"
                 android:textCursorDrawable="@drawable/cursor_black"
                 android:textSize="@dimen/_16sdp" />
@@ -56,6 +65,7 @@
                 android:layout_gravity="right"
                 android:layout_marginTop="@dimen/_60sdp"
                 android:gravity="right"
+                android:text="@{viewModel.date}"
                 android:textColor="@color/edt_gray"
                 android:textSize="@dimen/_12sdp"
                 tools:text="01/01/2000" />

@@ -2,6 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.demo.takenote.ui.addnote.AddNoteViewModel" />
+    </data>
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
         android:layout_width="match_parent"
@@ -25,6 +32,7 @@
                 android:layout_width="@dimen/_35sdp"
                 android:layout_height="@dimen/_35sdp"
                 android:layout_gravity="center_vertical|left"
+                android:onClick="@{() -> viewModel.onCloseOrDelete()}"
                 android:paddingLeft="@dimen/_15sdp"
                 android:paddingTop="@dimen/_10sdp"
                 android:paddingRight="@dimen/_10sdp"
@@ -47,6 +55,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|right"
                 android:gravity="center_vertical|right"
+                android:onClick="@{() -> viewModel.onSaveNote()}"
                 android:paddingLeft="@dimen/_10sdp"
                 android:paddingTop="@dimen/_10sdp"
                 android:paddingRight="@dimen/_15sdp"
