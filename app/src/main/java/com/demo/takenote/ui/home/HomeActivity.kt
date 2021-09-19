@@ -1,13 +1,11 @@
 package com.demo.takenote.ui.home
 
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
-import androidx.appcompat.app.AlertDialog
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.ItemTouchHelper
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.demo.takenote.R
 import com.demo.takenote.databinding.ActivityMainBinding
 import com.demo.takenote.ui.addnote.AddNoteActivity
@@ -33,26 +31,25 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //@todo bad practice because boilerplate code, but we'll be change this later using DI.
+        initView()
 
+        observeNotes()
+    }
+
+    private fun initView() {
         homeAdapter = HomeAdapter {
             openActivity(AddNoteActivity::class.java) {
                 putParcelable(NOTE_DATA, it)
             }
         }
 
-        initView()
-        observeNotes()
-    }
-
-    private fun initView() {
-        binding.addNoteFAB.setOnClickListener {
+        binding.fabAddNote.setOnClickListener {
             openActivity(AddNoteActivity::class.java)
         }
 
         binding.notesRV.apply {
             setHasFixedSize(true)
-            layoutManager = LinearLayoutManager(this@HomeActivity)
+            layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             adapter = homeAdapter
         }
 
@@ -61,8 +58,13 @@ class HomeActivity : AppCompatActivity() {
 
     private fun observeNotes() {
         Coroutines.main {
-            viewModel.getAllNotes().observe(this@HomeActivity, {
-                homeAdapter.submitList(it)
+            viewModel.getAllNotes().observe(this@HomeActivity, { listNote ->
+                if (listNote.isNullOrEmpty()) {
+                    binding.notesRV.visibility = View.GONE
+                } else {
+                    binding.notesRV.visibility = View.VISIBLE
+                    homeAdapter.submitList(listNote)
+                }
             })
         }
     }
@@ -87,30 +89,5 @@ class HomeActivity : AppCompatActivity() {
                 }
             }
         }
-    }
-
-    private fun clearNote() {
-        val dialog = AlertDialog.Builder(this, R.style.ThemeOverlay_AppCompat_Dialog)
-        dialog.setTitle(getString(R.string.clear_note))
-            .setMessage(getString(R.string.sure_clear_note))
-            .setPositiveButton(android.R.string.ok) { _, _ ->
-                Coroutines.main {
-                    viewModel.clearNote().also {
-                        myToast(getString(R.string.success_clear))
-                    }
-                }
-            }.setNegativeButton(android.R.string.cancel, null).create().show()
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.main_menu, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.clearNoteItem -> clearNote()
-        }
-        return super.onOptionsItemSelected(item)
     }
 }

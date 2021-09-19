@@ -68,4 +68,10 @@ dependencies {
     implementation "org.koin:koin-android-scope:$koin_version"
     implementation "org.koin:koin-android-viewmodel:$koin_version"
     implementation "org.koin:koin-android-ext:$koin_version"
+
+    implementation "com.google.android.material:material:$material_version"
+
+    // Auto dimen
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+
 }

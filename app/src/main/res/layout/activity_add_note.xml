@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
@@ -6,89 +5,63 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.addnote.AddNoteActivity">
+        android:background="@color/bg_layout">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <include
+            android:id="@+id/toolBar"
+            layout="@layout/view_toolbar" />
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/_15sdp"
+            android:paddingTop="@dimen/_20sdp"
+            android:paddingRight="@dimen/_15sdp"
+            android:paddingBottom="@dimen/_15sdp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/titleTIL"
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+            <EditText
+                android:id="@+id/edtTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:hint="@string/title"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:background="@android:color/transparent"
+                android:hint="@string/edit_title"
+                android:inputType="textCapSentences|textMultiLine"
+                android:singleLine="false"
+                android:textColor="@color/edt_gray"
+                android:textCursorDrawable="@drawable/cursor_black"
+                android:textSize="@dimen/_18sdp" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/titleET"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="text" />
-            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/descriptionTIL"
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+            <EditText
+                android:id="@+id/edtDesc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:hint="@string/description"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/titleTIL">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/descriptionET"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="text" />
-            </com.google.android.material.textfield.TextInputLayout>
+                android:layout_marginTop="@dimen/_35sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:background="@android:color/transparent"
+                android:hint="@string/edit_desc"
+                android:inputType="textCapSentences|textMultiLine"
+                android:singleLine="false"
+                android:textColor="@color/edt_gray"
+                android:textCursorDrawable="@drawable/cursor_black"
+                android:textSize="@dimen/_16sdp" />
 
             <TextView
-                android:id="@+id/priorityTV"
+                android:id="@+id/txtTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="@string/choose_priority"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/descriptionTIL" />
+                android:layout_gravity="right"
+                android:layout_marginTop="@dimen/_60sdp"
+                android:gravity="right"
+                android:textColor="@color/edt_gray"
+                android:textSize="@dimen/_12sdp"
+                tools:text="01/01/2000" />
 
-            <NumberPicker
-                android:id="@+id/priorityPicker"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/priorityTV" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/saveButton"
-            style="@style/Widget.MaterialComponents.Button"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_gravity="bottom"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
-            android:text="@string/save" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </layout>

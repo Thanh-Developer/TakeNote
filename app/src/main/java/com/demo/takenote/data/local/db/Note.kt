@@ -16,5 +16,6 @@ data class Note(
     val id: Int?,
     val title: String?,
     val description: String?,
-    val priority: Int?
+    val priority: Int?,
+    val date: String?
 ) : Parcelable

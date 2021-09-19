@@ -1,16 +1,16 @@
 <resources>
     <string name="app_name">TakeNote</string>
-    <string name="add_note">Add Note</string>
-    <string name="title">Title</string>
-    <string name="choose_priority">Choose Priority :</string>
-    <string name="save">Save</string>
-    <string name="description">Description</string>
-    <string name="clear_note">Clear Note</string>
     <string name="success_delete">Success delete note</string>
     <string name="success_clear">Success clear note</string>
     <string name="sure_clear_note">Are you sure, you want to delete all note?</string>
     <string name="form_empty">Some data is empty, checked your form</string>
-    <string name="update_note">Update Note</string>
+    <string name="update_note">Update note</string>
     <string name="success_save">Success save note</string>
     <string name="success_update">Success update note</string>
+    <string name="task_title">My Notes</string>
+    <string name="empty_notes">Once you add some notes\nyou will find it here</string>
+    <string name="add_note_title">Add new note</string>
+    <string name="btn_done">Done</string>
+    <string name="edit_title">Title</string>
+    <string name="edit_desc">Note</string>
 </resources>
