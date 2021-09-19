@@ -32,12 +32,11 @@ class HomeAdapter(private val listener: (Note) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
         fun bindItem(note: Note, listener: (Note) -> Unit) {
             binding.apply {
-                titleTV.text = note.title
-                descriptionTV.text = note.description
-                priorityTV.text = note.priority.toString()
-            }
-            binding.root.setOnClickListener {
-                listener(note)
+                itemTitle.text = note.title
+                itemDesc.text = note.description
+                root.setOnClickListener {
+                    listener(note)
+                }
             }
         }
     }

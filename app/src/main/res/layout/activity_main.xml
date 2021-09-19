@@ -6,26 +6,100 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/bg_layout"
+        android:fitsSystemWindows="true"
         tools:context=".ui.home.HomeActivity">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/notesRV"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_100sdp"
+            android:background="@color/bg_layout"
+            android:fitsSystemWindows="true"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:elevation="0dp">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/collapsingToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/bg_layout"
+                android:backgroundTint="@color/bg_layout"
+                app:contentScrim="@color/bg_layout"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:layout_gravity="bottom"
+                    android:layout_marginLeft="@dimen/_15sdp"
+                    android:fitsSystemWindows="true"
+                    android:text="@string/task_title"
+                    android:textColor="@color/layout_title"
+                    android:textSize="@dimen/_25sdp"
+                    app:layout_collapseMode="pin" />
+
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:clipToPadding="false"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_note" />
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-            android:id="@+id/addNoteFAB"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/notesRV"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingTop="@dimen/_4sdp"
+                android:paddingBottom="@dimen/_4sdp"
+                android:visibility="gone"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+            <ImageView
+                android:layout_width="@dimen/_45sdp"
+                android:layout_height="@dimen/_45sdp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_100sdp"
+                android:src="@drawable/ic_empty" />
+
+            <TextView
+                android:id="@+id/empty_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_20sdp"
+                android:drawablePadding="@dimen/_10sdp"
+                android:gravity="center"
+                android:text="@string/empty_notes"
+                android:textColor="@color/line"
+                android:textSize="@dimen/_16sdp" />
+
+        </LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabAddNote"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center"
-            android:layout_margin="16dp"
-            android:text="@string/add_note"
-            app:icon="@drawable/ic_baseline_add_24" />
+            android:layout_gravity="bottom|end"
+            android:layout_marginRight="@dimen/_22sdp"
+            android:layout_marginBottom="@dimen/_22sdp"
+            android:backgroundTint="@color/fab_color"
+            android:elevation="@dimen/_4sdp"
+            android:src="@drawable/ic_add"
+            app:backgroundTint="@color/fab_color"
+            app:borderWidth="@dimen/_2sdp"
+            app:fabSize="normal"
+            app:layout_anchorGravity="bottom|center" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
