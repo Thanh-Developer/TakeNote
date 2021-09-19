@@ -6,34 +6,33 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="@dimen/_5sdp"
         app:cardBackgroundColor="@android:color/white"
-        app:cardCornerRadius="5dp"
-        app:cardElevation="2dp"
+        app:cardCornerRadius="@dimen/_5sdp"
+        app:cardElevation="@dimen/_2sdp"
         app:cardPreventCornerOverlap="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="15dp">
+            android:padding="@dimen/_10sdp">
 
             <TextView
                 android:id="@+id/item_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:textColor="@color/layout_title"
-                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14sdp"
                 tools:text="Thanh" />
 
             <TextView
                 android:id="@+id/item_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="@dimen/_5sdp"
                 android:textColor="@color/layout_item_desc"
-                android:textSize="12sp"
+                android:textSize="@dimen/_12sdp"
                 tools:text="Android developer" />
 
         </LinearLayout>
