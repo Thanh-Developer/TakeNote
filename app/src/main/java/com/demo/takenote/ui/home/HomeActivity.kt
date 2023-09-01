@@ -53,14 +53,25 @@ class HomeActivity : AppCompatActivity() {
 
     private fun observeField() {
         Coroutines.main {
-            viewModel.getAllNotes().observe(this@HomeActivity, { listNote ->
-                if (listNote.isNullOrEmpty()) {
+            // For case don't using paging
+//            viewModel.getAllNotes().observe(this@HomeActivity, { notes ->
+//                if (notes.isNullOrEmpty()) {
+//                    binding.notesRV.visibility = View.GONE
+//                } else {
+//                    binding.notesRV.visibility = View.VISIBLE
+//                    homeAdapter.submitList(notes)
+//                }
+//            })
+
+            // For case using paging
+            viewModel.getAllNotePaged().observe(this@HomeActivity) { notes ->
+                if (notes.isNullOrEmpty()) {
                     binding.notesRV.visibility = View.GONE
                 } else {
                     binding.notesRV.visibility = View.VISIBLE
-                    homeAdapter.submitList(listNote)
+                    homeAdapter.submitList(notes)
                 }
-            })
+            }
         }
     }
 

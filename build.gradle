@@ -30,5 +30,6 @@ ext {
     koin_version = "2.2.0"
     lifecycle_version = "2.2.0"
     room_version = "2.2.6"
-    material_version = '1.2.1'
+    material_version = "1.2.1"
+    paging_version = "2.1.2"
 }

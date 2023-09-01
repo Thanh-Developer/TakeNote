@@ -74,4 +74,6 @@ dependencies {
     // Auto dimen
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
 
+    // Paging
+    implementation "androidx.paging:paging-runtime:$paging_version"
 }

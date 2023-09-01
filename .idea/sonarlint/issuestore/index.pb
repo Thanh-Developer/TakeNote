@@ -1,12 +1,6 @@
 
-k
-;app/src/main/java/com/demo/takenote/utils/UtilExtensions.kt,b/a/ba51902cc1348080f1b39cd1e55bd3b0c08037c6
-l
-<app/src/main/java/com/demo/takenote/ui/home/HomeViewModel.kt,2/2/221c04e74d0269449521ce0ae9d4704e944eb770
 <
 build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
-@
-app/build.gradle,f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164
 P
  app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
 i
@@ -15,29 +9,9 @@ q
 Aapp/src/main/java/com/demo/takenote/ui/addnote/AddNoteActivity.kt,a/0/a011769b8782df59ec366e4fd9a5da17a8cd9b55
 r
 Bapp/src/main/java/com/demo/takenote/ui/addnote/AddNoteViewModel.kt,d/4/d4a6e6e0549db40e778bbbd425dea92b001d5a9e
-k
-;app/src/main/java/com/demo/takenote/ui/home/HomeActivity.kt,a/a/aa2f566690da2ccfb968b1f8c88f226fa882ab85
 j
 :app/src/main/java/com/demo/takenote/ui/home/HomeAdapter.kt,4/d/4d3c703c5c2fc0502e92c9278e4f9babb2d80a8e
 X
 (gradle/wrapper/gradle-wrapper.properties,f/b/fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
-l
-<app/src/main/java/com/demo/takenote/data/local/db/NoteDao.kt,0/e/0edf03d7f2a2ee4315f059d1036cf9a0d8e3c243
-~
-Napp/src/main/java/com/demo/takenote/data/repository/impl/NoteRepositoryImpl.kt,1/c/1c67a455e019447d61ccbb54593dddbacb092206
-u
-Eapp/src/main/java/com/demo/takenote/data/repository/NoteRepository.kt,e/b/eb5b5990fb5f4d7369b3a7f3c861cbb31c428386
-f
-6app/src/main/java/com/demo/takenote/utils/DateUtils.kt,a/0/a0bf103a81a313ee0623d50e68817a215d6c7b2d
-g
-7app/src/main/java/com/demo/takenote/utils/Coroutines.kt,0/1/01cb2241b13c31683e999a308a459c21ad6becf9
-f
-6app/src/main/java/com/demo/takenote/MainApplication.kt,b/f/bf6dabdcf3aabf077e36527cf5a6aff1f1290a95
-i
-9app/src/main/java/com/demo/takenote/di/ViewModelModule.kt,4/7/471b667fc1a6ba335e8eb4a609525ba2055ddbbd
-j
-:app/src/main/java/com/demo/takenote/di/RepositoryModule.kt,4/b/4b4cab9997493db9c22798a8047122f2961d766f
-h
-8app/src/main/java/com/demo/takenote/di/DatabaseModule.kt,a/c/ac0be630d56a3879f6549bda8eb6e1652fd8507e
 q
 Aapp/src/main/java/com/demo/takenote/data/local/db/NoteDatabase.kt,c/1/c15a3f15496e5745294e6a3e5eabf5a962e77253
