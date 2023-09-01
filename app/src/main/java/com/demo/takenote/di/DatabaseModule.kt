@@ -5,9 +5,6 @@ import androidx.room.Room.databaseBuilder
 import com.demo.takenote.data.local.db.NoteDatabase
 import org.koin.dsl.module
 
-/**
- *  Create by ThanhPQ
- */
 val dbModule = module {
     single { createDatabaseName() }
     single { createAppDatabase(get(), get()) }

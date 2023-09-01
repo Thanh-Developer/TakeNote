@@ -2,6 +2,7 @@ package com.demo.takenote.ui.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -13,7 +14,7 @@ import java.util.*
  *  Create by ThanhPQ
  */
 class HomeAdapter(private val listener: (Note) -> Unit) :
-    ListAdapter<Note, HomeAdapter.NoteViewHolder>(DiffUtilNote()) {
+    PagedListAdapter<Note, HomeAdapter.NoteViewHolder>(DiffUtilNote()) {
     lateinit var notes: List<Note>
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
@@ -23,18 +24,20 @@ class HomeAdapter(private val listener: (Note) -> Unit) :
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
         val item = getItem(position)
-        holder.bindItem(item, listener)
+        if (item != null) {
+            holder.bindItem(item, listener)
+        }
     }
 
-    override fun submitList(list: List<Note>?) {
-        if (list != null) {
-            notes = list
-        }
-        super.submitList(list)
-    }
+//    override fun submitList(list: List<Note>?) {
+//        if (list != null) {
+//            notes = list
+//        }
+//        super.submitList(list)
+//    }
 
     fun getNoteAt(position: Int): Note {
-        return getItem(position)
+        return getItem(position)!!
     }
 
     // Handle animation when delete note

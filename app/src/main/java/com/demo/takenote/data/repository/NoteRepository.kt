@@ -1,6 +1,7 @@
 package com.demo.takenote.data.repository
 
 import androidx.lifecycle.LiveData
+import androidx.paging.PagedList
 import com.demo.takenote.data.local.db.Note
 
 /**
@@ -8,6 +9,7 @@ import com.demo.takenote.data.local.db.Note
  */
 interface NoteRepository {
     fun getAllNotes(): LiveData<List<Note>>
+    fun getAllNotePaged(config: PagedList.Config): LiveData<PagedList<Note>>
     suspend fun insertNote(note: Note)
     suspend fun updateNote(note: Note)
     suspend fun deleteNote(note: Note)
